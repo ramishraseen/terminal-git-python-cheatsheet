@@ -1,0 +1,93 @@
+key note: 
+  this cheat sheet is assumed to be used by beginner, who has little or no experience
+  with Terminal and GitHub. For comprehensive refer to the References.
+
+Terminal code: 
+
+  pwd: Show current directory
+  ls: List files
+  ls -la: List all files (ls -a: including hidden), (ls -l: long format)
+  cd dir: Change directory
+  cd ..: go up one directory
+  mkdir dir: Create directory
+  rm file: Delete file permenantly
+  rm -r dir: Delete directory recursively permenantly
+  cp a b: 
+    is used to copy files or directories. In this specific case, it tells the computer
+    to take the content of a (the source) and create a duplicate named b (the destination),
+    only if b does not exist, otherweise a copy into b
+  cp -r folder1 folder2: Copies an entire folder (recursively), including everything inside it.
+  mv a b:  
+      -If a is a file and b is a name that doesn't exist yet, the terminal simply renames the file.
+       The content stays exactly the same, but the name on the disk changes.
+      -If a is a file and b is an existing folder (directory), the terminal moves the file into that folder.
+  touch file_name: create empty file ( touch file_name)
+  cat file: Show file content
+
+
+Python / Development:
+
+  python script.py: Run Python script
+  pip install package: Install Python package
+  pip freeze: List installed packages
+  pytest: Run tests (may need, pip install pytest)
+  pip freeze > requirements.txt: save the installed package version in text
+  pip freeze > requirments.yml: save the installed as named tex requiremetns als yml file
+
+GitHub_cheatsheet:
+  setup:
+    -git init: Initialize repository
+    -git config --global user.name "Your Name": Set username ("--" set the name globaly, not locally!)
+    -git config --global user.email "you@example.com": Set email
+
+  Quick_start:
+    -git clone <url>: Clone repository
+    -git status: Show changes
+    -git pull: Pull latest changes (git pull = fetch + merge) 
+    -git push: Push current branch
+    
+  Staging_and_commits:
+    -git add .: Stage all changes
+    -git add <file>: Stage specific file
+    -git commit -m "message": Commit with message
+    -git commit -am "message": Stage & commit tracked files (Clarify that -a only stages modifications to tracked files, not new (untracked) files.)
+    -git rm <file>: Remove file
+    -git rm --cached <file>: Untrack file (keep locally)
+  
+  Branching:
+    -git switch -c <new-branch>: Create and switch to new branch
+    -git checkout <branch>: Switch branch(moves the HEAD pointer to the new branch)
+    -git branch -m <old> <new>: rename any branch, not just current
+    -git push -u origin <branch>: Push branch and set upstream (only after you have commit smth or you have made a new branch)
+    -git branch: List branches
+    -git branch <branch>: Create branch
+    -git branch -d <branch>: Delete local branch
+    -git branch -m <newname>: Rename current branch
+    -git pull origin <branch>: Pull specific branch
+    -git push origin <branch>: Push branch
+    -git show HEAD: Show last commit
+  
+  merging_and_rebasing:
+    -git merge <branch>: Merge branch into current branch, where the HEAD point
+    -git rebase <branch>: Rebase onto branch (rewrites the project history by placing your work directly on top of another branch.)
+    -git rebase -i HEAD~3: Interactive rebase (last 3 commits)
+    -git pull --rebase: Pull with rebase
+  
+  remote:
+    -git remote -v: List remotes (is used to view the connection settings between your local computer and the remote servers (like GitHub or GitLab).)
+    -git remote add origin <url>: Add remote
+    -git push origin --delete <branch>: Delete remote branch
+    -git fetch: (Fetch changes) It downloads the latest information and data from the remote repository (GitHub), but it does not change any of the files you are currently working on
+  
+  logs_and_diff:
+    -git log: Show commit history
+    -git log --oneline --graph --all: Compact visual log
+    -git diff: Show unstaged changes
+    -git diff --staged: Show staged changes
+    -git show HEAD: Show last commit
+  
+  Oops! Undo:
+    -git restore <file>: Discard unstaged changes 
+    -git restore --staged <file>: Unstage a file.
+    -git reset --soft HEAD~1: Undo last commit but keep changes staged.
+    -git commit --amend -m "new message": Fix last commit message.
